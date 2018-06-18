@@ -75,7 +75,7 @@ y_pred = (y_pred > 0.5)
 Predict if the customer with the following informations will leave the bank: 
 
 Geography: France
-Credit Score: 600
+Credit Score: 600 
 Gender: Male
 Age: 40 years old
 Tenure: 3 years
@@ -93,3 +93,23 @@ new_prediction = (new_prediction > 0.5)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
+
+# Part 4 - Evaluating, Improving and Tuning the ANN. Performing k-fold cross validation
+
+# Evaluating the ANN
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.model_selection import cross_val_score
+from keras.models import Sequential
+from keras.layers import Dense
+
+def build_classifier():
+    classifier = Sequential()
+    classifier.add(Dense(kernel_initializer = 'uniform', activation = 'relu', input_dim = 11, units = 6))
+    classifier.add(Dense(kernel_initializer = 'uniform', activation = 'relu', units = 6))
+    classifier.add(Dense(kernel_initializer = 'uniform', activation = 'sigmoid', units = 1))
+    classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+    return classifier
+
+classifier = KerasClassifier(build_fn = build_classifier, batch_size = 10, epochs = 100)
+accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
+    
