@@ -13,3 +13,7 @@ from keras.layers import Dense
 # Initialising the CNN
 
 classifier = Sequential()
+
+# Step 1 - Convolution
+
+classifier.add(Convolution2D(32, 3, 3, input_shape = (64, 3, 3), activation = 'relu'))
