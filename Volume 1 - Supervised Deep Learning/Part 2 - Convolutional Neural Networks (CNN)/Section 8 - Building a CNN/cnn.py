@@ -25,3 +25,6 @@ classifier.add(Flatten())
 # Step 4 - Full connection
 classifier.add(Dense(activation= 'relu', units = 128))
 classifier.add(Dense(activation= 'sigmoid', units = 1))
+
+# Step 5 - Compiling the CNN
+classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
