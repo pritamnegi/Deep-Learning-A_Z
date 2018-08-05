@@ -15,3 +15,7 @@ training_set = training_set.iloc[:,1:2].values
 from sklearn.preprocessing import MinMaxScaler
 sc = MinMaxScaler()
 training_set = sc.fit_transform(training_set)
+
+# Getting the inputs and outputs
+X_train = training_set[0:1257]
+y_train = training_set[1:1258]
