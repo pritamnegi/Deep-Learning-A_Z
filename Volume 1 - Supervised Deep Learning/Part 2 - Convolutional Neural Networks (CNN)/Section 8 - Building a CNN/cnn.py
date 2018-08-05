@@ -62,7 +62,7 @@ classifier.fit_generator(training_set,
 
 # Part 3- Making new predictions
 
-import numpy as mp
+import numpy as np
 from keras.preprocessing import image
 
 test_image = image.load_img('dataset/single_prediction/cat_or_dog_1.jpg', target_size=(64, 64))
