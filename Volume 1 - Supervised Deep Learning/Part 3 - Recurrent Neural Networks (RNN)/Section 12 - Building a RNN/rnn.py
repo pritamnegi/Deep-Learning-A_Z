@@ -43,7 +43,8 @@ regressor.add(Dense(units = 1))
 # Compiling the RNN
 regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 
-
+# Fitting the RNN to the Training Set
+regressor.fit(X_train, y_train, batch_size = 32, epochs = 200)
 
 
 
