@@ -36,3 +36,19 @@ regressor = Sequential()
 
 # Adding the input layer and the LSTM layer
 regressor.add(LSTM(units = 4, activation= 'sigmoid', input_shape = (None, 1)))
+
+# Adding the output layer
+regressor.add(Dense(units = 1))
+
+
+
+
+
+
+
+
+
+
+
+
+
