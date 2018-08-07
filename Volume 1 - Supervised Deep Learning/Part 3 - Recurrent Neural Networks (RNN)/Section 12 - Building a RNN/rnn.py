@@ -47,6 +47,12 @@ regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
 regressor.fit(X_train, y_train, batch_size = 32, epochs = 200)
 
 
+# Part 3 - MAking the predictions and visualizing the results
+
+# Getting the real stock price of 2017
+test_set = pd.read_csv("Google_Stock_Price_Test.csv")
+real_stock_price = test_set.iloc[:,1:2].values
+
 
 
 
