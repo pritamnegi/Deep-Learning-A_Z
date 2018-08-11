@@ -64,10 +64,31 @@ predicted_stock_price = sc.inverse_transform(predicted_stock_price)
 
 plt.plot(real_stock_price, color = 'red', label = "Real Google Stock Price")
 plt.plot(predicted_stock_price, color = 'blue', label = "Predicted Google Stock Price")
+plt.title("Google Stock Price Prediction")
 plt.xlabel("Time")
 plt.ylabel("Google Stock Price")
 plt.legend()
 plt.show()
+
+# Homework
+
+# Getting the real stock price of 2012 - 2016
+real_stock_price_train = pd.read_csv("Google_Stock_Price_Train.csv")
+real_stock_price_train = real_stock_price_train.iloc[:,1:2].values
+
+# Getting the predicted stock price of 2012 - 2016
+predicted_stock_price_train = regressor.predict(X_train)
+predicted_stock_price_train = sc.inverse_transform(predicted_stock_price_train)
+
+# Visualising the results 
+plt.plot(real_stock_price_train, color = 'red', label = "Real Google Stock Price")
+plt.plot(predicted_stock_price_train, color = 'blue', label = "Predicted Google Stock Price")
+plt.title("Google Stock Price Prediction")
+plt.xlabel("Time")
+plt.ylabel("Google Stock Price")
+plt.legend()
+plt.show()
+
 
 
 
